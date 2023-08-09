@@ -130,8 +130,8 @@
     (while (not (send (send *ri* :save-log (format nil "/tmp/~a" org-fname) :set-robot-date-string nil) :operation_return)) (warn "do :save-log"))
 
     ;; save shm log (do not scp and copy at the same time with hrpsys log files)
-    (when (setq shm-log-saved (or save-shm-log (and (is-servo-off :print t) (or (not ask-to-save-shm-log) (y-or-n-p "Save shm log?")))))
-      (save-shm-log :log-dir log-dir :scp nil))
+    ;; (when (setq shm-log-saved (or save-shm-log (and (is-servo-off :print t) (or (not ask-to-save-shm-log) (y-or-n-p "Save shm log?")))))
+    ;;   (save-shm-log :log-dir log-dir :scp nil))
 
     (setq fname (read-line (piped-fork (format nil "zenity --entry --title \"ファイル名\" --text=\"ログファイルの保存名\" --entry-text=\"~s\"" fname)) nil eof))
     (if (eq eof fname)

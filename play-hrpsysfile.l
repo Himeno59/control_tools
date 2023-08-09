@@ -669,4 +669,4 @@
     (while (not (boundp '*servo-state-msg*)) (ros::spin-once))
     )
   )
-(init-play-hrpsysfile)
+;; (init-play-hrpsysfile)
